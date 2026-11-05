@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulir Pendaftaran Santri Baru Gelombang 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--hijau:#0e4a42;--hijau2:#176b5e;--mint:#eaf3f0;--emas:#b8892b;--tinta:#13241f;--abu:#5d6d68;--garis:#cfdcd7;--putih:#fff;--err:#b3261e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Plus Jakarta Sans",Arial,sans-serif;color:var(--tinta);background:var(--mint);line-height:1.5}
+.hero{background:var(--hijau);color:#fff;padding:28px 20px 90px;position:relative;overflow:hidden}
+.hero-in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:24px}
+.hero svg{flex:0 0 150px;width:150px;height:auto}
+.hero h1{font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.15;margin:0 0 10px;font-weight:800}
+.hero p{margin:0;color:#c9e0da;max-width:42ch}
+.badge{display:inline-block;background:var(--emas);color:#fff;font-weight:600;font-size:.8rem;padding:4px 12px;border-radius:99px;margin-bottom:12px}
+main{max-width:760px;margin:-60px auto 40px;padding:0 16px;position:relative}
+form{background:var(--putih);border-radius:20px;padding:28px 24px;box-shadow:0 18px 40px -20px rgba(14,74,66,.45)}
+fieldset{border:0;padding:0;margin:0 0 26px}
+legend{font-weight:800;font-size:1.05rem;color:var(--hijau);padding:0 0 12px;width:100%;border-bottom:2px solid var(--emas);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
+label small{font-weight:400;color:var(--abu)}
+input,textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--garis);border-radius:12px;background:#fbfdfc;color:var(--tinta);transition:border-color .15s,box-shadow .15s}
+input:focus,textarea:focus{outline:none;border-color:var(--hijau2);box-shadow:0 0 0 4px rgba(23,107,94,.15);background:#fff}
+input:user-invalid,textarea:user-invalid{border-color:var(--err)}
+textarea{resize:vertical;min-height:96px}
+.hint{font-size:.8rem;color:var(--abu);margin-top:4px}
+.aksi{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+button{font:inherit;font-weight:600;border:0;border-radius:12px;padding:14px 22px;cursor:pointer;flex:1 1 200px;transition:transform .1s,background .15s}
+button:active{transform:scale(.98)}
+button:focus-visible{outline:3px solid var(--emas);outline-offset:2px}
+.utama{background:var(--hijau);color:#fff}.utama:hover{background:var(--hijau2)}
+.utama[disabled]{opacity:.6;cursor:wait}
+.kedua{background:#fff;color:var(--hijau);border:1.5px solid var(--hijau)}.kedua:hover{background:var(--mint)}
+.pesan{display:none;margin-top:16px;padding:14px 16px;border-radius:12px;font-size:.95rem}
+.pesan.ok{display:block;background:#e3f4e8;color:#14532d}
+.pesan.gagal{display:block;background:#fdecea;color:#7a1712}
+.pesan.info{display:block;background:#fff5dc;color:#6b4a07}
+footer{text-align:center;color:var(--abu);font-size:.8rem;padding:0 16px 30px}
+.ttd,.cetak-saja{display:none}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero-in{flex-direction:column;text-align:center}.hero svg{flex-basis:auto;width:120px}form{padding:22px 16px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== CETAK: A4, margin normal (2,54 cm), Arial 12 ===== */
+@page{size:A4;margin:2.54cm}
+@media print{
+  html,body{background:#fff!important;font-family:Arial,Helvetica,sans-serif!important;font-size:12pt;color:#000;line-height:1.3}
+  .hero,footer,.aksi,.pesan,.hint,.layar-saja{display:none!important}
+  .cetak-saja{display:block}
+  main{margin:0;padding:0;max-width:none}
+  form{box-shadow:none;border-radius:0;padding:0}
+  .kop{display:flex!important;align-items:center;gap:14px;border-bottom:3px double #000;padding-bottom:8px;margin-bottom:10px}
+  .kop svg{width:70px;height:auto;flex:none}
+  .kop h1{font-size:14pt;margin:0;text-align:center;flex:1;line-height:1.25}
+  fieldset{margin:0 0 6px}
+  legend{font-size:12pt;color:#000;border-bottom:1px solid #000;margin-bottom:6px;padding-bottom:2px}
+  .grid{display:block}
+  .grid>div{display:grid;grid-template-columns:5.2cm 1fr;gap:6px;align-items:end;margin-bottom:5px}
+  label{font-size:12pt;font-weight:400;margin:0}label small{display:none}
+  input,textarea{font:12pt Arial,Helvetica,sans-serif;border:0;border-bottom:1px dotted #000;border-radius:0;background:none;padding:2px 0;box-shadow:none;min-height:0;resize:none;color:#000}
+  textarea{height:2.6em;overflow:hidden}
+  .ttd{display:flex;justify-content:space-between;margin-top:18px;text-align:center;page-break-inside:avoid}
+  .ttd div{width:6cm}.ttd .ruang{height:2cm}
+  .ttd span{border-top:1px solid #000;display:block;padding-top:2px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero layar-saja">
+  <div class="hero-in">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Ilustrasi masjid">
+      <circle cx="100" cy="100" r="96" fill="#176b5e"/>
+      <circle cx="146" cy="52" r="13" fill="#b8892b"/><circle cx="152" cy="48" r="11" fill="#176b5e"/>
+      <rect x="28" y="92" width="14" height="70" fill="#eaf3f0"/><path d="M28 92l7-16 7 16z" fill="#b8892b"/>
+      <rect x="158" y="92" width="14" height="70" fill="#eaf3f0"/><path d="M158 92l7-16 7 16z" fill="#b8892b"/>
+      <path d="M62 120a38 38 0 0 1 76 0z" fill="#eaf3f0"/>
+      <path d="M100 66v-12M95 58h10" stroke="#b8892b" stroke-width="3" stroke-linecap="round"/>
+      <rect x="54" y="120" width="92" height="42" fill="#eaf3f0"/>
+      <path d="M88 162v-20a12 12 0 0 1 24 0v20z" fill="#0e4a42"/>
+      <rect x="60" y="130" width="12" height="18" rx="6" fill="#0e4a42"/><rect x="128" y="130" width="12" height="18" rx="6" fill="#0e4a42"/>
+      <rect x="20" y="162" width="160" height="6" rx="3" fill="#b8892b"/>
+    </svg>
+    <div>
+      <span class="badge">Pendaftaran dibuka</span>
+      <h1>Formulir Pendaftaran Santri Baru Gelombang 1</h1>
+      <p>Isi data dengan lengkap dan benar. Formulir ini juga bisa dicetak di kertas A4.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<form id="form" autocomplete="on">
+
+  <div class="kop" style="display:none">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="none" stroke="#000" stroke-width="5"/><path d="M62 120a38 38 0 0 1 76 0z" fill="none" stroke="#000" stroke-width="5"/><rect x="54" y="120" width="92" height="42" fill="none" stroke="#000" stroke-width="5"/><path d="M100 82v-14" stroke="#000" stroke-width="5"/></svg>
+    <h1>FORMULIR PENDAFTARAN<br>SANTRI BARU GELOMBANG 1</h1>
+  </div>
+
+  <fieldset>
+    <legend>Data calon santri</legend>
+    <div class="grid">
+      <div class="full"><label for="nama">Nama lengkap</label><input id="nama" name="nama" required autocomplete="name" placeholder="Sesuai akta kelahiran"></div>
+      <div><label for="tempat">Tempat lahir</label><input id="tempat" name="tempat_lahir" required placeholder="Contoh: Bandung"></div>
+      <div><label for="tgl">Tanggal lahir</label><input id="tgl" name="tanggal_lahir" type="date" required></div>
+      <div class="full"><label for="nisn">NISN <small>(10 digit)</small></label><input id="nisn" name="nisn" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="0012345678"><div class="hint">NISN tertera di rapor atau kartu pelajar.</div></div>
+      <div class="full"><label for="alamat">Alamat lengkap</label><textarea id="alamat" name="alamat" required placeholder="Jalan, RT/RW, desa/kelurahan, kecamatan, kabupaten/kota"></textarea></div>
+      <div class="full"><label for="penyakit">Penyakit bawaan</label><input id="penyakit" name="penyakit_bawaan" required placeholder="Tulis “Tidak ada” jika tidak ada"></div>
+      <div class="full"><label for="tujuan">Tujuan masuk pesantren</label><textarea id="tujuan" name="tujuan" required placeholder="Ceritakan singkat alasan dan harapan"></textarea></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Data orang tua</legend>
+    <div class="grid">
+      <div><label for="ayah">Nama ayah</label><input id="ayah" name="nama_ayah" required></div>
+      <div><label for="kerja_ayah">Pekerjaan ayah</label><input id="kerja_ayah" name="pekerjaan_ayah" required></div>
+      <div><label for="ibu">Nama ibu</label><input id="ibu" name="nama_ibu" required></div>
+      <div><label for="kerja_ibu">Pekerjaan ibu</label><input id="kerja_ibu" name="pekerjaan_ibu" required></div>
+      <div class="full"><label for="wa">Nomor WhatsApp yang dapat dihubungi</label><input id="wa" name="whatsapp" type="tel" inputmode="tel" pattern="[0-9+ \-]{9,16}" required placeholder="08123456789" autocomplete="tel"></div>
+    </div>
+  </fieldset>
+
+  <div class="ttd">
+    <div>Calon santri,<div class="ruang"></div><span id="ttdNama">&nbsp;</span></div>
+    <div>Orang tua/wali,<div class="ruang"></div><span>&nbsp;</span></div>
+  </div>
+
+  <div class="aksi">
+    <button type="submit" class="utama" id="kirim">Kirim pendaftaran</button>
+    <button type="button" class="kedua" id="cetak">Cetak formulir</button>
+  </div>
+  <div class="pesan" id="pesan" role="status" aria-live="polite"></div>
+</form>
+</main>
+<footer class="layar-saja">Data yang Anda kirim hanya digunakan untuk keperluan pendaftaran.</footer>
+
+<script>
+// Tempel URL Web App Google Apps Script di bawah ini (lihat panduan). Kosong = mode cetak saja.
+const SCRIPT_URL = "";
+
+const f = document.getElementById("form"), pesan = document.getElementById("pesan"), kirim = document.getElementById("kirim");
+const tampil = (kelas, teks) => { pesan.className = "pesan " + kelas; pesan.textContent = teks; pesan.scrollIntoView({behavior:"smooth",block:"nearest"}); };
+
+document.getElementById("cetak").addEventListener("click", () => {
+  document.getElementById("ttdNama").textContent = document.getElementById("nama").value || "\u00a0";
+  window.print();
+});
+
+f.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!SCRIPT_URL) { tampil("info", "Pengiriman online belum disambungkan ke Google Spreadsheet. Sementara, silakan cetak formulir ini."); return; }
+  kirim.disabled = true; kirim.textContent = "Mengirim…";
+  try {
+    const data = new URLSearchParams(new FormData(f));
+    await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: data });
+    tampil("ok", "Pendaftaran terkirim. Panitia akan menghubungi nomor WhatsApp yang Anda isi.");
+    f.reset();
+  } catch (err) {
+    tampil("gagal", "Pendaftaran belum terkirim. Periksa koneksi internet, lalu coba lagi.");
+  } finally { kirim.disabled = false; kirim.textContent = "Kirim pendaftaran"; }
+});
+</script>
+</body>
+</html>
